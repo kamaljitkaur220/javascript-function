@@ -22,7 +22,7 @@ document.getElementById("demo").innerHTML = Multiply(4,6);
 function power(x, n) {
   let result1 = 1;
   for(let index = 0; index < n; index++){
-    result1 *= x;
+    result1 = Multiply(result1,x)
   }
 return result1;
 }
@@ -35,22 +35,31 @@ document.getElementById("add-power").innerHTML = power(2,8);
 function factorial(n) { 
   let ans=1;  
   for (let i = 2; i <= n; i++) 
-      ans = ans * i; 
+      ans = Multiply(ans,i)
   return ans; 
 } 
   document.getElementById("add-fact").innerHTML =  factorial(5);
   
 
 //Fibonacci
-function fibonacci(n) {
 
-	let sequence = [0, 1];
 
-	for (let i = 2; i < n; i++) {
-		sequence.push(sequence[sequence.length -1] + sequence[sequence.length -2]);
-	}
 
-	return sequence;
+
+function  fibonacci(n) {
+
+  let x = 0
+let y = 1
+let z
+
+    for (let i = 2; i < n; i++) {
+
+        z = add(x, y)
+        x = y
+        y = z
+    }
+    return z
+
 }
 
 document.getElementById("add-fib").innerHTML =  fibonacci(8);
